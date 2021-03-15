@@ -1,4 +1,3 @@
-
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.carousel');
     var instances = M.Carousel.init(elems, options);
@@ -58,8 +57,9 @@ function handleError(error) {
     console.error(error);
 }
   function getApi() {
-  
-    fetch()
+    
+    let apiKey = something;
+    fetch(api.giphy.com/v1/gifs/random/ + apiKey)
       .then(function (response) {
         return response.json();
       })
@@ -77,3 +77,5 @@ function handleError(error) {
         }
       });
   }
+
+  //apiKey = CRwhIZ7SiNJbG4bYCS7ilbOcXC3WF9Tv;
