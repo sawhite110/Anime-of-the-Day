@@ -1,7 +1,11 @@
+<<<<<<< HEAD
   document.addEventListener('DOMContentLoaded', function() {
+=======
+document.addEventListener('DOMContentLoaded', function() {
+>>>>>>> a381fa278484794f674e3309f5f7f1f2872061e5
     var elems = document.querySelectorAll('.carousel');
     var instances = M.Carousel.init(elems, options);
-  });
+});
 
 // Here we define our query as a multi-line string
 // Storing it in a separate .graphql/.gql file is also possible
@@ -56,14 +60,23 @@ function handleError(error) {
     alert('Error, check console');
     console.error(error);
 }
+<<<<<<< HEAD
   function getApi() {
     
     let apiKey = something;
     fetch(api.giphy.com/v1/gifs/random/ + apiKey)
       .then(function (response) {
+=======
+
+function getApi() {
+  
+fetch(api.giphy.com/v1/gifs/random/tSu9g6DGA4MVf62qKs70CjhPW86LQ7QT)
+
+    .then(function (response) {
+>>>>>>> a381fa278484794f674e3309f5f7f1f2872061e5
         return response.json();
-      })
-      .then(function (data) {
+      })      
+    .then(function (data) {
         console.log(data)
         //Loop over the data to generate a table, each table row will have a link to the repo url
         for (var i = 0; i < data.length; i++) {
