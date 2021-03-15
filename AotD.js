@@ -59,7 +59,7 @@ function handleError(error) {
 
 function getApi() {
   
-fetch(api.giphy.com/v1/gifs/random/tSu9g6DGA4MVf62qKs70CjhPW86LQ7QT)
+fetch(api.giphy.com/v1/gifs/search/tSu9g6DGA4MVf62qKs70CjhPW86LQ7QT)
 
     .then(function (response) {
         return response.json();
