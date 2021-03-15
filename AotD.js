@@ -1,8 +1,7 @@
-
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.carousel');
     var instances = M.Carousel.init(elems, options);
-  });
+});
 
 // Here we define our query as a multi-line string
 // Storing it in a separate .graphql/.gql file is also possible
@@ -57,13 +56,15 @@ function handleError(error) {
     alert('Error, check console');
     console.error(error);
 }
-  function getApi() {
+
+function getApi() {
   
-    fetch()
-      .then(function (response) {
+fetch(api.giphy.com/v1/gifs/random/tSu9g6DGA4MVf62qKs70CjhPW86LQ7QT)
+
+    .then(function (response) {
         return response.json();
-      })
-      .then(function (data) {
+      })      
+    .then(function (data) {
         console.log(data)
         //Loop over the data to generate a table, each table row will have a link to the repo url
         for (var i = 0; i < data.length; i++) {
