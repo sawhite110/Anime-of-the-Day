@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-  document.addEventListener('DOMContentLoaded', function() {
-=======
 document.addEventListener('DOMContentLoaded', function() {
->>>>>>> a381fa278484794f674e3309f5f7f1f2872061e5
     var elems = document.querySelectorAll('.carousel');
     var instances = M.Carousel.init(elems, options);
 });
@@ -10,24 +6,35 @@ document.addEventListener('DOMContentLoaded', function() {
 // Here we define our query as a multi-line string
 // Storing it in a separate .graphql/.gql file is also possible
 var query = `
-query ($id: Int) { # Define which variables will be used in the query (id)
-  Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-    id
-    title {
-      romaji
-      english
-      native
+query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+  Page (page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      currentPage
+      lastPage
+      hasNextPage
+      perPage
+    }
+    media (id: $id, search: $search) {
+      id
+      title {
+        romaji
+      }
     }
   }
 }
 `;
 
+//var search = document.querySelector('search-input');
+
 // Define our query variables and values that will be used in the query request
 var variables = {
-    id: 15125
+  search: "Fate/Zero",
+  page: 1,
+  perPage: 5
 };
 
-// Define the config we'll need for our Api request
+// Define the config we'll need for our third-party Api request
 var url = 'https://graphql.anilist.co',
     options = {
         method: 'POST',
@@ -53,27 +60,21 @@ function handleResponse(response) {
 }
 
 function handleData(data) {
-    console.log(data);
+    console.log(data.data);
+    //console.log(media);
+
 }
 
 function handleError(error) {
     alert('Error, check console');
     console.error(error);
 }
-<<<<<<< HEAD
-  function getApi() {
-    
-    let apiKey = something;
-    fetch(api.giphy.com/v1/gifs/random/ + apiKey)
-      .then(function (response) {
-=======
 
 function getApi() {
   
 fetch(api.giphy.com/v1/gifs/random/tSu9g6DGA4MVf62qKs70CjhPW86LQ7QT)
 
     .then(function (response) {
->>>>>>> a381fa278484794f674e3309f5f7f1f2872061e5
         return response.json();
       })      
     .then(function (data) {
