@@ -106,20 +106,32 @@ function init() {
         fetch(url)
             .then(response => response.json())
             .then(content => {
-                console.log(content.data);
-
-                let fig = document.createElement("figure");
-                let img = document.createElement("img");
+                console.log(content);
                 
-                img.src = content.data[0].images.downsized.url;
-                img.alt = content.data[0].title;
-                fig.appendChild(img);
-                let out = document.querySelector(".carousel-item");
-                out.append(fig);
-                document.querySelector("#search-input").value = "";
+                let carousel = document.querySelector(".carousel");
+                
+                for (var i = 0; i < content.data.length; i++) {
+                    let img= document.querySelector("#num" + i);
+                    img.setAttribute("src", content.data[i].images.downsized.url);
+                    // carousel.append(anchor);
+                    // anchor.append(img);
+                
+                }
+                
+                // let fig = document.createElement("figure");
+                // let img = document.createElement("img");
+                // let fc = document.createElement("figcaption");
+                // img.src = content.data[4].images.downsized.url;
+                // img.alt = content.data[4].title;
+                // fc.textContent = content.data[4].title;
+                // fig.appendChild(img);
+                // let out = document.querySelector(".carousel-item");
+                // out.append(fig);
+                // document.querySelector("#search-input").value = "";
             })
             .catch(err => {
                 console.error(err);
             });
     });
 }
+console.log(document.querySelector(".carousel"));
