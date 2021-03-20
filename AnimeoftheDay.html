@@ -2,6 +2,7 @@
 <html>
      <!--Import materialize.css-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link rel="stylesheet" href="./assets/style.css">
 
 <title>Anime of the Day!</title>
     <head class="head">
@@ -9,22 +10,38 @@
     </head>
 <hr>
     <body class="body" id="body">
+<br>
+<br>
 
+<div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image col s6">
+        <!--Image of the day from an api source-->
+          <img src="images/image1.jpg">
+          <span class="card-title">Card Title</span>
+        </div>
+        <!--paragraph populated from wiki article-->
+        <div class="card-content col s4">
+          <p>I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively.</p>
+          </div>
+      </div>
+    </div>
+  </div>
+
+<!-- <img class="image" id="image" src="" alt="Anime Character"> -->
+<!--pull image from wiki article-->
+<hr>
 <!--wrap the paragraph left of the picture--> 
 <!--Input search bar-->
 <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
 <button id="search-btn" class="btn" >Search</button>
-<!--paragraph populated from wiki article-->
-<p class="para" id="para">
-</p>
-
-<img class="image" id="image" src="" alt="Anime Character">
-<!--pull image from wiki article-->
-<hr>
-<!--wrap the paragraph left of the picture--> 
-
+<br>
+<br>
+<br>
 <!-- Thanks Sean! -->
-<div class="carousel">
+<div class="carousel row col s12 m7 card">
     <a class="carousel-item" href="#one!"><img src="" id="num0"></a>
     <a class="carousel-item" href="#two!"><img src="" id="num1"></a>
     <a class="carousel-item" href="#three!"><img src="" id="num2"></a>
@@ -35,6 +52,35 @@
   <button class="btn waves-effect waves-light" type="submit" name="action">
       <i class="material-icons right">copy/paste</i>
   </button>
+
+  <br>
+  <br>
+  <br>
+
+  <footer class= "tags flow-text">
+    <div class="chip">
+        <img src="images/image1.jpg" alt="App Creators">
+        Stevenson White II
+    </div>
+    <br>
+    <br>
+    <div class="chip flow-text">
+        <img src="images/image1.jpg" alt="App Creators">
+        Taylor Lilley
+    </div>
+    <br>
+    <br>
+    <div class="chip flow-text">
+        <img src="images/image1.jpg" alt="App Creators">
+        Brian McMullen
+    </div>
+    <br>
+    <br>
+    <div class="chip flow-text">
+        <img src="images/image1.jpg" alt="App Creators">
+        Henry Vernon
+    </div>
+  </footer>
 
 <!--giphy stuff using JS-->
 <div>

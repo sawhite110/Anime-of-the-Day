@@ -11,17 +11,26 @@ var searchBtn = document.getElementById('#search-btn');
 // Storing it in a separate .graphql/.gql file is also possible
 //directly pulled from example provided from anilist.co
 var query = `
-query ($id: Int) { # Define which variables will be used in the query (id)
-  Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
-    id
-    title {
-      romaji
-      english
-      native
+query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+  Page (page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      currentPage
+      lastPage
+      hasNextPage
+      perPage
+    }
+    media (id: $id, search: $search) {
+      id
+      title {
+        romaji
+      }
     }
   }
 }
 `;
+
+//var search = document.querySelector('search-input');
 
 // Define our query variables and values that will be used in the query request
 var variables = {
@@ -29,7 +38,7 @@ var variables = {
     title: searchApiOne,
 };
 
-// Define the config we'll need for our Api request
+// Define the config we'll need for our third-party Api request
 var url = 'https://graphql.anilist.co',
     options = {
         method: 'POST',
@@ -91,8 +100,9 @@ function handleError(error) {
 //   }
 //   getGiphy();
 
+//SAW API KEY: CRwhIZ7SiNJbG4bYCS7ilbOcXC3WF9Tv
 // B API KEY: LZXpTS7zJy2ae85ESFOpQngKA0nQExc
-let APIKEY = "pLZXpTS7zJy2ae85ESFOpQngKA0nQExc";
+let APIKEY = "CRwhIZ7SiNJbG4bYCS7ilbOcXC3WF9Tv";
 // you will need to get your own API KEY
 // https://developers.giphy.com/dashboard/
 document.addEventListener("DOMContentLoaded", init);
