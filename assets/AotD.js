@@ -74,32 +74,6 @@ function handleError(error) {
 }
 
 
-//giphy API
-// let APIKEY = "pLZXpTS7zJy2ae85ESFOpQngKA0nQExc";
-
-// function getGiphy() {
-
-// fetch('https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}')
-
-//     .then(function (response) {
-//         return response.json();
-//       })      
-//     .then(function (data) {
-//         console.log(data)
-//         //Loop over the data to generate a table, each table row will have a link to the repo url
-//         for (var i = 0; i < data.length; i++) {
-//           // Creating elements, tablerow, tabledata, and anchor
-
-//           // Setting the text of link and the href of the link
-
-//           // Appending the link to the tabledata and then appending the tabledata to the tablerow
-//           // The tablerow then gets appended to the tablebody
-
-//         }
-//       });
-//   }
-//   getGiphy();
-
 //SAW API KEY: CRwhIZ7SiNJbG4bYCS7ilbOcXC3WF9Tv
 // B API KEY: LZXpTS7zJy2ae85ESFOpQngKA0nQExc
 let APIKEY = "CRwhIZ7SiNJbG4bYCS7ilbOcXC3WF9Tv";
@@ -128,16 +102,6 @@ function init() {
                 
                 }
                 
-                // let fig = document.createElement("figure");
-                // let img = document.createElement("img");
-                // let fc = document.createElement("figcaption");
-                // img.src = content.data[4].images.downsized.url;
-                // img.alt = content.data[4].title;
-                // fc.textContent = content.data[4].title;
-                // fig.appendChild(img);
-                // let out = document.querySelector(".carousel-item");
-                // out.append(fig);
-                // document.querySelector("#search-input").value = "";
             })
             .catch(err => {
                 console.error(err);

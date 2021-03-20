@@ -1,4 +1,11 @@
-.h1 {
+body {
+    margin: 0;
+    background-color: black;
+    color: whitesmoke;
+}
+
+
+h1 {
     display: flex;
     justify-content: center;
     background-color: black;
@@ -12,6 +19,8 @@
 
 #search-input {
     width: 90%;
+    color: whitesmoke;
+    padding-left: 20px;
 }
 
 .card-image {
@@ -67,6 +76,10 @@
     position: relative;
     width: 90%;
     height: 300px;
+}
+
+img {
+
 }
 
 .tags {
