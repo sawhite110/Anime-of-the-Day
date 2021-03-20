@@ -7,10 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
 var searchApiOne = document.querySelector('#search-input');
 var searchBtn = document.getElementById('#search-btn');
 
-
-// wiki API
-
-
 function wikiSearch () {
     wikiAPI = "https://en.wikipedia.org/w/api.php"; 
 var params = {
@@ -49,8 +45,9 @@ console.log(wikiURL);
 
 })
 }
+
 // B API KEY: LZXpTS7zJy2ae85ESFOpQngKA0nQExc
-let APIKEY = "pLZXpTS7zJy2ae85ESFOpQngKA0nQExc";
+let APIKEY = "CRwhIZ7SiNJbG4bYCS7ilbOcXC3WF9Tv";
 // you will need to get your own API KEY
 // https://developers.giphy.com/dashboard/
 document.addEventListener("DOMContentLoaded", init);
