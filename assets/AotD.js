@@ -1,9 +1,8 @@
-//carousel js
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.carousel');
     var instances = M.Carousel.init(elems);
 });
-// user input variables
+
 var searchApiOne = document.querySelector('#search-input');
 var searchBtn = document.getElementById('#search-btn');
 
@@ -22,40 +21,22 @@ fetch(wikiURL)
         return response.json()
     })
     .then(function(response) {
-        console.log(response.query.search)
         document.querySelector('#para').innerHTML = ''
-        response.query.search.forEach( e => {
-            var wikiEntry = document.createElement('p')
-            wikiEntry.innerHTML = e.title
-            document.querySelector('#para').appendChild(wikiEntry)
-
+        var wikiEntry = document.createElement('p')
+        wikiEntry.innerHTML = response.query.search[0].snippet
+        document.querySelector('#para').appendChild(wikiEntry)
+        console.log(response.query.search[0]);    
         })
-        if (response.query.search[0].title === "search-input"){
-            console.log("found" );
-        
-            for (var i = 0; i < content.query.searchinfo;) {
-                let paragraph = document.querySelector(".para" + i);
-                paragraph.setAttribute("p", content.query.searchinfo.url);    
-
-            }
-
-        };
- 
 console.log(wikiURL);
-
-})
 }
 
-// B API KEY: LZXpTS7zJy2ae85ESFOpQngKA0nQExc
 let APIKEY = "CRwhIZ7SiNJbG4bYCS7ilbOcXC3WF9Tv";
-// you will need to get your own API KEY
-// https://developers.giphy.com/dashboard/
+
 document.addEventListener("DOMContentLoaded", init);
 function init() {
     document.getElementById("search-btn").addEventListener("click", ev => {
-        ev.preventDefault(); //to stop the page reload
-        
-        // call wiki function
+        ev.preventDefault(); 
+
         wikiSearch()
 
         let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=5&q=`;
@@ -71,9 +52,7 @@ function init() {
 
                 for (var i = 0; i < content.data.length; i++) {
                     let img = document.querySelector("#num" + i);
-                    img.setAttribute("src", content.data[i].images.downsized.url);
-                    // carousel.append(anchor);
-                    // anchor.append(img);
+                    img.setAttribute("src", content.data[i].images.downsized.url)
 
                 }
 
