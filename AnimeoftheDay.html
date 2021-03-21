@@ -1,94 +1,84 @@
 <!DOCTYPE html>
 <html>
-     <!--Import materialize.css-->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-     <link rel="stylesheet" href="./assets/style.css">
+<!--Import materialize.css-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="./assets/style.css">
 
 <title>Anime of the Day!</title>
-    <head class="head">
-        <h1>Anime of the Day</h1>
-    </head>
+
+<head class="head">
+  <h1>Anime of the Day</h1>
+</head>
 <hr>
-    <body class="body" id="body">
-<!--Input search bar-->
-<input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
-<button id="search-btn" class="btn" >Search</button>
-<br>
-<br>
 
+<body class="body" id="body">
+  <br>
+  <br>
 
-<div class="row">
+  <div class="row">
     <div class="col s12 m7">
       <div class="card">
         <div class="card-image col s6">
-        <!--Image of the day from an api source-->
+          <!--Image of the day from an api source-->
           <img src="images/image1.jpg">
           <span class="card-title">Card Title</span>
         </div>
-        <!--wrap the paragraph left of the picture-->
         <!--paragraph populated from wiki article-->
         <div class="card-content col s4">
+          <div class="anime-title" id="anime-title"></div>
           <p class="para" id="para">I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-          </div>
+            I am convenient because I require little markup to use effectively.</p>
+        </div>
       </div>
     </div>
   </div>
 
-<!-- <img class="image" id="image" src="" alt="Anime Character"> -->
-<!--pull image from wiki article-->
-<hr>
-
-<!-- Thanks Sean! -->
-<div class="carousel row col s12 m7 card">
+  <!-- <img class="image" id="image" src="" alt="Anime Character"> -->
+  <!--pull image from wiki article-->
+  <hr>
+  <!--wrap the paragraph left of the picture-->
+  <!--Input search bar-->
+  <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
+  <button id="search-btn" class="btn">Search</button>
+  <br>
+  <br>
+  <br>
+  <!-- Thanks Sean! -->
+  <div class="carousel row col s12 m7 card">
     <a class="carousel-item" href="#one!"><img src="" id="num0"></a>
     <a class="carousel-item" href="#two!"><img src="" id="num1"></a>
     <a class="carousel-item" href="#three!"><img src="" id="num2"></a>
     <a class="carousel-item" href="#four!"><img src="" id="num3"></a>
     <a class="carousel-item" href="#five!"><img src="" id="num4"></a>
   </div>
-
-  <button class="btn waves-effect waves-light" type="submit" name="action">
-      <i class="material-icons right">copy/paste</i>
-  </button>
-
   <br>
   <br>
-  <br>
-
-  <footer class= "tags flow-text">
-    <div class="chip">
-        <img src="images/image1.jpg" alt="App Creators">
-        Stevenson White II
+  <footer class="tags flow-text row card">
+    <h3>App Creators</h3>
+    <div class="chip flow-text">
+      <img src="images/stevenson.jfif" alt="App Creators">
+      Stevenson White II
     </div>
     <br>
-    <br>
     <div class="chip flow-text">
-        <img src="images/image1.jpg" alt="App Creators">
-        Taylor Lilley
+      <img src="images/taylor.jpg" alt="App Creators">
+      Taylor Lilley
     </div>
     <br>
-    <br>
     <div class="chip flow-text">
-        <img src="images/image1.jpg" alt="App Creators">
-        Brian McMullen
+      <img src="images/brian.jpg" alt="App Creators">
+      Brian McMullen
     </div>
     <br>
-    <br>
     <div class="chip flow-text">
-        <img src="images/image1.jpg" alt="App Creators">
-        Henry Vernon
+      <img src="images/henry.jpg" alt="App Creators">
+      Henry Vernon
     </div>
   </footer>
 
-<!--giphy stuff using JS-->
-<div>
-
-</div>
-<!--JavaScript at end of body for optimized loading-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="./assets/AotD.js"></script>
+  <!--JavaScript at end of body for optimized loading-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./assets/AotD.js"></script>
 </body>
-
 
 </html>

@@ -1,78 +1,52 @@
 //carousel js
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems, options);
+    var instances = M.Carousel.init(elems);
 });
 // user input variables
 var searchApiOne = document.querySelector('#search-input');
 var searchBtn = document.getElementById('#search-btn');
 
-// Here we define our query as a multi-line string
-// Storing it in a separate .graphql/.gql file is also possible
-//directly pulled from example provided from anilist.co
-var query = `
-query ($id: Int, $page: Int, $perPage: Int, $search: String) {
-  Page (page: $page, perPage: $perPage) {
-    pageInfo {
-      total
-      currentPage
-      lastPage
-      hasNextPage
-      perPage
-    }
-    media (id: $id, search: $search) {
-      id
-      title {
-        romaji
-      }
-    }
-  }
-}
-`;
-
-//var search = document.querySelector('search-input');
-
-// Define our query variables and values that will be used in the query request
-var variables = {
-
-    title: searchApiOne,
+//Wiki api
+function wikiSearch () {
+    wikiAPI = "https://en.wikipedia.org/w/api.php"; 
+var params = {
+    action: "query",
+    list:  "search",
+    srsearch: document.querySelector('#search-input').value,
+    format: "json"
 };
+wikiURL = wikiAPI + "?origin=*";
+Object.keys(params).forEach(function(key){wikiURL += "&" + key + "=" + params[key];});
+fetch(wikiURL)
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(response) {
+        console.log(response)
+        console.log(response.query.search)
+        document.querySelector('#para').innerHTML = ''
+        response.query.search.forEach( e => {
+            var wikiEntry = document.createElement('p')
+            wikiEntry.innerHTML = e.snippet
+            document.querySelector('#para').appendChild(wikiEntry)
 
-// Define the config we'll need for our third-party Api request
-var url = 'https://graphql.anilist.co',
-    options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-            query: query,
-            variables: variables
         })
-    };
+        if (response.query.search[0].snippet === "search-input"){
+            console.log("found" );
+        
+            for (var i = 0; i < content.query.searchinfo;) {
+                let paragraph = document.querySelector(".para" + i);
+                paragraph.setAttribute("p", content.query.searchinfo.url);    
 
-// Make the HTTP Api request
-fetch(url, options).then(handleResponse)
-    .then(handleData)
-    .catch(handleError);
+            }
 
-function handleResponse(response) {
-    return response.json().then(function (json) {
-        return response.ok ? json : Promise.reject(json);
-    });
+        };
+ 
+console.log(wikiURL);
+
+})
 }
-
-function handleData(data) {
-    console.log(data);
-    console.log(url);
-}
-
-function handleError(error) {
-    alert('Error, check console');
-    console.error(error);
-}
-
 
 //SAW API KEY: CRwhIZ7SiNJbG4bYCS7ilbOcXC3WF9Tv
 // B API KEY: LZXpTS7zJy2ae85ESFOpQngKA0nQExc
@@ -83,6 +57,10 @@ document.addEventListener("DOMContentLoaded", init);
 function init() {
     document.getElementById("search-btn").addEventListener("click", ev => {
         ev.preventDefault(); //to stop the page reload
+        
+        // call wiki function
+        wikiSearch()
+
         let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=5&q=`;
         let str = document.getElementById("search-input").value.trim();
         url = url.concat(str);
@@ -91,21 +69,21 @@ function init() {
             .then(response => response.json())
             .then(content => {
                 console.log(content);
-                
+
                 let carousel = document.querySelector(".carousel");
-                
+
                 for (var i = 0; i < content.data.length; i++) {
-                    let img= document.querySelector("#num" + i);
+                    let img = document.querySelector("#num" + i);
                     img.setAttribute("src", content.data[i].images.downsized.url);
                     // carousel.append(anchor);
                     // anchor.append(img);
-                
+
                 }
-                
             })
             .catch(err => {
                 console.error(err);
             });
     });
 }
-console.log(document.querySelector(".carousel"));
+// console.log(document.querySelector(".carousel"));
+
