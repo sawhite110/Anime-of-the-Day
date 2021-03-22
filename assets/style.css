@@ -97,6 +97,7 @@ h1 {
     position: relative;
     width: 90%;
     height: 300px;
+    background-color: var(--dark);
 }
 
 .tags {
