@@ -58,7 +58,7 @@ function init() {
 
         wikiSearch()
 
-        let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=5&q=`;
+        let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=6&q=`;
         let str = document.getElementById("search-input").value.trim();
         url = url.concat(str);
         console.log(url);
@@ -76,9 +76,7 @@ function init() {
                 //This will populate the image for the anime of the day.
                 document.querySelector(".giphy-image").innerHTML = ""
                 var giphyEntry = document.createElement("img")
-                giphyEntry.innerHTML = response.query.search[0].title
                 document.querySelector(".giphy-image").appendChild(giphyEntry)
-                console.log(response.query.search[0]);
             })
             .catch(err => {
                 console.error(err);
