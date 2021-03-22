@@ -58,7 +58,7 @@ function init() {
 
         wikiSearch()
 
-        let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=5&q=`;
+        let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=6&q=`;
         let str = document.getElementById("search-input").value.trim();
         url = url.concat(str);
         console.log(url);
