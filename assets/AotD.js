@@ -27,7 +27,7 @@ Object.keys(params).forEach(function(key){wikiURL += "&" + key + "=" + params[ke
 fetch(wikiURL)
     .then(function(response){
         return response.json()
-    })
+    })//This creates the paragraph info from wiki
     .then(function(response) {
         document.querySelector("#para").innerHTML = ""
         var wikiEntry = document.createElement("p")
@@ -35,6 +35,7 @@ fetch(wikiURL)
         document.querySelector("#para").appendChild(wikiEntry)
         console.log(response.query.search[0]);    
 
+        //This will populate the first title information from wiki
         document.querySelector("#anime-title").innerHTML = ""
         var wikiEntry = document.createElement("div")
         wikiEntry.innerHTML = response.query.search[0].title
@@ -49,6 +50,7 @@ console.log(wikiURL);
 // B API KEY: LZXpTS7zJy2ae85ESFOpQngKA0nQExc
 let APIKEY = "CRwhIZ7SiNJbG4bYCS7ilbOcXC3WF9Tv";
 
+//Event listner for the giphy search
 document.addEventListener("DOMContentLoaded", init);
 function init() {
     document.getElementById("search-btn").addEventListener("click", ev => {
@@ -65,13 +67,13 @@ function init() {
             .then(content => {
                 console.log(content);
 
-                // let carousel = document.querySelector(".carousel");
-
+                // This will allow the carousel to populate the images from the giphy api
                 for (var i = 0; i < content.data.length; i++) {
                     let img = document.querySelector("#num" + i);
                     img.setAttribute("src", content.data[i].images.downsized.url)
                 }
 
+                //This will populate the image for the anime of the day.
                 document.querySelector(".giphy-image").innerHTML = ""
                 var giphyEntry = document.createElement("img")
                 giphyEntry.innerHTML = response.query.search[0].title
@@ -83,5 +85,5 @@ function init() {
             });
     });
 }
-// console.log(document.querySelector(".carousel"));
+
 
